@@ -10,6 +10,8 @@ import UIKit
 
 class CustomTabBarController: UITabBarController {
     
+    let tabBarDelegate = TabBarDelegate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,6 +19,9 @@ class CustomTabBarController: UITabBarController {
             createNavigationController(tabBarSystemItem: UITabBarItem.SystemItem.favorites, backgroundColor: .red),
             createNavigationController(tabBarSystemItem: UITabBarItem.SystemItem.bookmarks, backgroundColor: .yellow)
         ]
+        
+        tabBar.isTranslucent = false
+        delegate = tabBarDelegate
     }
     
     private func createNavigationController(tabBarSystemItem: UITabBarItem.SystemItem, backgroundColor: UIColor) -> UINavigationController {
